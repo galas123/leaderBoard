@@ -1,21 +1,37 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TableHeader from './components/tableHeader';
+import Row from './components/content';
+import {loadData} from './AC/loadData';
+import {connect} from 'react-redux';
 
 class App extends Component {
 
+  componentWillMount(){
+    loadData();
+  }
+
   render() {
+    const {campers}=this.props;
+    const listLeaders = campers.map((camper, index) =>
+      <Row index={index} camper={camper}/>
+    );
     return (
       <div className="board">
         <h2 className="board__name">Leaderboard </h2>
         <table className="board__table">
-          <tr className="board__captures">
-            <td></td>
-          </tr>
+          <TableHeader/>
+          {listLeaders}
         </table>
       </div>
     )
   };
 }
 
-export default App;
+const mapStateToProps = state=>{
+  console.log(state, state.board);
+  return{
+    campers           : state.board.get('campers')
+  }};
+
+export default connect(mapStateToProps, null)(App);
