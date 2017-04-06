@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {loadData} from '../AC/loadData';
+import {loadRecent, loadAll} from '../AC/loadData';
 
 class tableHeader extends Component {
   render() {
@@ -24,17 +24,17 @@ class tableHeader extends Component {
   }
 
   onSortByRecentPoints = (ev) => {
-    const {loadData}=this.props;
+    const {loadRecent}=this.props;
     ev.preventDefault();
-    loadData('https://fcctop100.herokuapp.com/api/fccusers/top/recent');
+    loadRecent();
   }
 
   onSortByAllPoints = (ev) => {
-    const {loadData}=this.props;
+    const {loadAll}=this.props;
     ev.preventDefault();
-    loadData('https://fcctop100.herokuapp.com/api/fccusers/top/alltime');
+    loadAll();
   }
 
 }
 
-export default connect(null, {loadData})(tableHeader);
+export default connect(null, {loadRecent, loadAll})(tableHeader);

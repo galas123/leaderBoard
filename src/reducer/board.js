@@ -4,7 +4,7 @@ import {Map, List}  from 'immutable';
 
 const defaultState = Map({
   campers: List([]),
-  isError:false
+  isError:true
 });
 
 export default (board = defaultState, action) => {

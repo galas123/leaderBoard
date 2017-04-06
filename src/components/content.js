@@ -5,28 +5,25 @@ import React, {
 export default class content extends Component {
   render() {
     const {camper, index}=this.props;
-    const camperName=camper.username;
-    const recentPoints=camper.recent;
-    const allPoints=camper.alltime;
-    const avatar=camper.img;
-    const avatarUrl=`https://www.freecodecamp.com/${camperName}`;
+    const {username, recent, alltime, img}=camper;
+    const profileUrl=`https://www.freecodecamp.com/${username}`;
 
     return (
       <tr>
         <td className="cell">{index + 1}</td>
         <td className="cell">
           <div className="camper-info">
-            <img className="camper-avatar" src={avatar}/>
-            <a href={avatarUrl} target="_blank">
-              {camperName}
+            <img className="camper-avatar" src={img}/>
+            <a href={profileUrl} target="_blank">
+              {username}
             </a>
           </div>
         </td>
         <td className="cell">
-          {recentPoints}
+          {recent}
         </td>
         <td className="cell">
-          {allPoints}
+          {alltime}
         </td>
       </tr>
     );

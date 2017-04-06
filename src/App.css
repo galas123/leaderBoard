@@ -37,3 +37,8 @@
   font-size:inherit;
   font-weight: 600;
 }
+.error-row{
+  border:1px solid #ccc;
+  text-align: center;
+  font-size: 30px;
+}
