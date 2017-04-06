@@ -9,12 +9,11 @@ class App extends Component {
 
   componentWillMount(){
     const {loadData}=this.props;
-    loadData();
+    loadData('https://fcctop100.herokuapp.com/api/fccusers/top/recent');
   }
 
   render() {
     const {campers}=this.props;
-    console.log(campers);
     const listLeaders = campers.map((camper, index) =>
       <Row index={index} camper={camper} key={camper.username}/>
     );

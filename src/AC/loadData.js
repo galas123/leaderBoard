@@ -1,20 +1,15 @@
 import {LOAD_DATA, ERROR_DATA} from '../constants'
 
-export const loadData = () => {
-  return function (dispatch) {
-    fetchCampers()
-      .then( list=>list.json())
-      .then ((listJson)  => {
-        console.log('list',listJson);
-        dispatch(fetchSucsessful(listJson))},
-      error => dispatch(fetchFall(error))
-    )
+export const loadData = url => {
+  return dispatch => {
+    fetch(url)
+      .then(response=>response.json())
+      .then(
+        list => dispatch(fetchSucsessful(list)),
+        error => dispatch(fetchFall(error))
+      )
   };
 };
-
-function fetchCampers() {
-  return fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent');
-}
 
 export const fetchSucsessful = (list) =>
   ({

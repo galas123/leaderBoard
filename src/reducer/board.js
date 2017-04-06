@@ -1,6 +1,4 @@
-import {
-  LOAD_DATA, ERROR_DATA
-} from '../constants';
+import {LOAD_DATA, ERROR_DATA} from '../constants';
 
 import {Map, List}  from 'immutable';
 
@@ -18,6 +16,7 @@ export default (board = defaultState, action) => {
     
     case ERROR_DATA:
       return board.setIn(['campers'], []).setIn(['isError'],true);
+
   };
   return board;
 }

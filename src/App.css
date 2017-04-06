@@ -1,12 +1,39 @@
 .board__table{
   border:1px solid #ccc;
   padding:20px;
+  margin: 0 auto;
+  border-collapse: collapse;
 
+}
+.board__name{
+  text-align: center;
+  display: block;
+  color:#ed225d;
+  font-size: 45px;
+  text-shadow: 3px 5px 4px #ddd;
 }
 .header{
   border:1px solid #ccc;
   padding:20px;
+  font-size: 22px;
 }
 .cell{
   border:1px solid #ccc;
+  padding: 20px 10px;
+
+}
+.camper-avatar{
+  width: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.camper-info{
+  display: flex;
+  align-items: center;
+}
+.sort-button{
+  border:none;
+  background-color:#fff;
+  font-size:inherit;
+  font-weight: 600;
 }
